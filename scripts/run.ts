@@ -12,11 +12,14 @@ const main = async () => {
     const waveTxn = await waveContract.wave()
     console.log("waved by owner", owner.address);
     await waveTxn.wait();
+    // You can also see that wallet address that waved equaled to the address that deployed the contract. I waved at myself!
+
 
     const waveTxn2 = await waveContract.connect(randomPerson).wave()
     await waveTxn2.wait();
     console.log("waved by random address", randomPerson.address);
-
+    // You can also see that wallet address that waved equaled to the address that wave.
+ 
     await waveContract.getTotalWaves()
 
 };
